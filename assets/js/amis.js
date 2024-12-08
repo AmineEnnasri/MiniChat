@@ -22,10 +22,37 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <a class="contact-link" onclick="openConversation(${friend.id})">Contacter</a>
         `;
+        
+        friendItem.addEventListener('dragstart', dragStart);
+        friendItem.addEventListener('dragover', dragOver);
+        friendItem.addEventListener('drop', drop);
 
         friendsList.appendChild(friendItem);
     });
 });
+
+function dragStart(event) {
+    event.dataTransfer.setData('text/plain', event.target.getAttribute('data-id'));
+    event.dataTransfer.effectAllowed = 'move';
+}
+
+function dragOver(event) {
+    event.preventDefault(); // Nécessaire pour permettre le drop
+}
+
+function drop(event) {
+    event.preventDefault();
+    const targetFriend = event.target.closest('.friend');
+
+    if (targetFriend) {
+        const draggedFriendId = event.dataTransfer.getData('text/plain');
+        const draggedFriend = document.querySelector(`.friend[data-id="${draggedFriendId}"]`);
+
+        // Insérer l'ami traîné avant l'ami cible
+        const friendsList = document.getElementById('friends-list');
+        friendsList.insertBefore(draggedFriend, targetFriend);
+    }
+}
 
 // Fonction pour filtrer les amis
 function filterFriends() {
