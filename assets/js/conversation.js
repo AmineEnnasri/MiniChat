@@ -2,12 +2,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const conversationId = parseInt(urlParams.get('conversationId'));
 
+    console.log('ID de la conversation:', conversationId);
 
     fetch('../data/messages.json')
         .then(response => response.json())
         .then(data => {
             const conversation = data.conversations.find(conv => parseInt(conv.id) === conversationId);
-
+            console.log('data:', data.conversations);
+            console.log('conversation:', conversation);
             if (conversation) {
                 const conversationDetailDiv = document.getElementById('conversation-detail');
                 conversationDetailDiv.innerHTML = `
@@ -66,6 +68,52 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => console.error('Erreur lors de la récupération des messages:', error));
 });
+
+// Fonction pour envoyer un message
+function sendMessage(conversationId, messageContent) {
+    const newMessage = {
+        timestamp: new Date().toISOString(),
+        sender: "Moi",
+        content: messageContent
+    };
+
+    // Envoyer le message à l'API json-server
+    fetch(`http://localhost:3000/conversations/${conversationId}`)
+        .then(response => response.json())
+        .then(conversation => {
+            // Ajouter le message au tableau des messages
+            conversation.messages.push(newMessage);
+
+            // Mettre à jour la conversation avec le nouveau message
+            fetch(`http://localhost:3000/conversations/${conversationId}`, {
+                method: 'PUT', // Utilisez PUT pour mettre à jour la ressource
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(conversation) // Envoyer la conversation mise à jour
+            })
+            .then(() => {
+                // Mettre à jour l'interface
+                const conversationDetailDiv = document.getElementById('conversation-detail');
+                const messageElement = document.createElement('div');
+                messageElement.className = 'message';
+                messageElement.innerHTML = `
+                    <div class="message-content sent">
+                        <strong>Moi</strong>: ${messageContent}
+                        <span class="timestamp">${new Date(newMessage.timestamp).toLocaleString()}</span>
+                    </div>
+                `;
+                
+                // Référence au champ de saisie
+                const messageInputDiv = document.getElementById('message-input');
+
+                // Insérer le nouveau message juste avant le champ de saisie
+                conversationDetailDiv.insertBefore(messageElement, messageInputDiv);
+            })
+            .catch(error => console.error('Erreur lors de la mise à jour de la conversation:', error));
+        })
+        .catch(error => console.error('Erreur lors de la récupération de la conversation:', error));
+}
 
 // Fonction pour charger le header et le footer
 function loadHTML() {
