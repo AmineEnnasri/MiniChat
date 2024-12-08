@@ -1,0 +1,19 @@
+{
+    "posts": [
+        {
+            "title": "Azur Tech Research",
+            "content": "Azur Tech Research vous accompagne dans vos projets de transition numérique.",
+            "image": "assets/images/posts/post1.png"
+        },
+        {
+            "title": "Un autre post",
+            "content": "Voici un autre post avec du texte.",
+            "image": null
+        },
+        {
+            "title": "Post avec image",
+            "content": "Regardez cette belle image!",
+            "image": "assets/images/posts/post2.jpg"
+        }
+    ]
+}

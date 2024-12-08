@@ -1,0 +1,64 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #e0e0e0; /* Couleur de fond douce */
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #333; /* Couleur du texte */
+}
+
+input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+header {
+    background-color: #ffffff; /* Couleur de fond pour le header */
+    color: #333;
+    padding: 20px;
+    text-align: center;
+    border-radius: 20px; /* Coins arrondis */
+    box-shadow: 8px 8px 15px #b8b8b8, -8px -8px 15px #ffffff; /* Ombre pour le neumorphisme */
+}
+
+header h1 {
+    font-size: 2.5em; /* Taille du titre */
+    margin: 0; /* Supprimer la marge par défaut */
+}
+
+header nav {
+    margin-top: 10px; /* Espacement au-dessus de la navigation */
+}
+
+header nav a {
+    color: rgb(212, 137, 25); /* Couleur des liens */
+    text-decoration: none; /* Supprimer le soulignement */
+    margin: 0 15px; /* Espacement entre les liens */
+    font-size: 1.2em; /* Taille des liens */
+    transition: color 0.3s, transform 0.3s; /* Transition pour l'effet de survol */
+}
+
+header nav a:hover {
+    color: #ffcc00; /* Couleur au survol */
+    transform: scale(1.1); /* Effet de zoom au survol */
+}
+
+footer {
+    background-color: #ffffff; /* Couleur de fond pour le footer */
+    color: #333;
+    text-align: center;
+    padding: 15px;
+    border-radius: 20px; /* Coins arrondis */
+    box-shadow: 8px 8px 15px #b8b8b8, -8px -8px 15px #ffffff; /* Ombre pour le neumorphisme */
+}
+
+footer p {
+    margin: 0; /* Supprimer la marge par défaut */
+    font-size: 1em; /* Taille du texte */
+}

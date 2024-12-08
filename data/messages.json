@@ -1,0 +1,51 @@
+{
+  "conversations": [
+    {
+      "id": "1",
+      "friendName": "Alice Dupont",
+      "friendPhoto": "../assets/images/amis/alice.jpg",
+      "messages": [
+        {
+          "timestamp": "2024-12-09T10:00:00Z",
+          "sender": "Alice",
+          "content": "Salut! Comment ça va?"
+        },
+        {
+          "timestamp": "2024-12-09T10:05:00Z",
+          "sender": "Moi",
+          "content": "Ça va bien, merci!"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "friendName": "Bob Martin",
+      "friendPhoto": "../assets/images/amis/bob.jpg",
+      "messages": [
+        {
+          "timestamp": "2024-12-09T11:00:00Z",
+          "sender": "Bob",
+          "content": "Es-tu disponible ce soir?"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "friendName": "Charlie Bernard",
+      "friendPhoto": "../assets/images/amis/charlie.jpg",
+      "messages": []
+    },
+    {
+      "id": "4",
+      "friendName": "David Lefevre",
+      "friendPhoto": "../assets/images/amis/david.jpg",
+      "messages": []
+    },
+    {
+      "id": "5",
+      "friendName": "Eve Moreau",
+      "friendPhoto": "assets/images/amis/eve.jpg",
+      "messages": []
+    }
+  ]
+}
