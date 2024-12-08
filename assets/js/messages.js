@@ -4,6 +4,20 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             const conversationsDiv = document.getElementById('conversations');
 
+            // Trier les conversations par date du dernier message
+            data.conversations.sort((a, b) => {
+                // Vérifiez si les conversations ont des messages
+                if (a.messages.length === 0) return 1; // Si a n'a pas de messages, il vient après
+                if (b.messages.length === 0) return -1; // Si b n'a pas de messages, il vient après
+
+                // Obtenir le dernier message de chaque conversation
+                const lastMessageA = a.messages[a.messages.length - 1].timestamp;
+                const lastMessageB = b.messages[b.messages.length - 1].timestamp;
+
+                // Comparer les dates
+                return new Date(lastMessageB) - new Date(lastMessageA); // Tri décroissant
+            });
+
             // Afficher les conversations triées
             data.conversations.forEach(conversation => {
                 const conversationElement = document.createElement('div');
@@ -28,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <span class="timestamp">${lastMessageTimestamp}</span>
                         </div>
                     `;
+                    conversationElement.onclick = () => loadConversation(conversation.id);
                     conversationsDiv.appendChild(conversationElement);
                 }
             });
@@ -35,6 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => console.error('Erreur lors de la récupération des messages:', error));
 });
 
+function loadConversation(conversationId) {
+    // Rediriger vers une nouvelle page avec l'ID de la conversation
+    window.location.href = `conversation.html?conversationId=${conversationId}`;
+}
 
 // Fonction pour charger le header et le footer
 function loadHTML() {
