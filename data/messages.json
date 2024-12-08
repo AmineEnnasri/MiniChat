@@ -44,7 +44,7 @@
     {
       "id": "5",
       "friendName": "Eve Moreau",
-      "friendPhoto": "assets/images/amis/eve.jpg",
+      "friendPhoto": "../assets/images/amis/eve.jpg",
       "messages": []
     }
   ]
