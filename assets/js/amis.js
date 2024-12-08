@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="friend-info">
                 <h4>${friend.firstName} ${friend.lastName}</h4>
             </div>
-            <a class="contact-link" onclick="">Contacter</a>
+            <a class="contact-link" onclick="openConversation(${friend.id})">Contacter</a>
         `;
 
         friendsList.appendChild(friendItem);
@@ -40,6 +40,29 @@ function filterFriends() {
             friend.style.display = 'none';
         }
     });
+}
+
+// Fonction pour ouvrir la conversation d'un ami
+function openConversation(friendId) {
+    fetch('../data/messages.json')
+        .then(response => response.json())
+        .then(data => {
+            const conversation = data.conversations.find(conv => conv.id === friendId);
+            if (!conversation) {
+                // Si la conversation n'existe pas, en créer une nouvelle
+                const friend = document.querySelector(`.friend[data-id="${friendId}"]`);
+                const newConversation = {
+                    id: friendId,
+                    friendName: friend.textContent.trim(),
+                    friendPhoto: "../assets/images/amis/default.png", // Remplacez par une image par défaut si nécessaire
+                    messages: []
+                };
+                data.conversations.push(newConversation);
+            }
+            // Rediriger vers la page de conversation
+            window.location.href = `conversation.html?conversationId=${friendId}`;
+        })
+        .catch(error => console.error('Erreur lors de la récupération des messages:', error));
 }
 
 // Fonction pour charger le header et le footer

@@ -2,14 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const conversationId = parseInt(urlParams.get('conversationId'));
 
-    console.log('ID de la conversation:', conversationId);
-
     fetch('../data/messages.json')
         .then(response => response.json())
         .then(data => {
             const conversation = data.conversations.find(conv => parseInt(conv.id) === conversationId);
-            console.log('data:', data.conversations);
-            console.log('conversation:', conversation);
+
             if (conversation) {
                 const conversationDetailDiv = document.getElementById('conversation-detail');
                 conversationDetailDiv.innerHTML = `
