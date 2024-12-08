@@ -27,6 +27,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Fonction pour filtrer les amis
+function filterFriends() {
+    const searchInput = document.getElementById('search').value.toLowerCase();
+    const friends = document.querySelectorAll('.friend');
+
+    friends.forEach(friend => {
+        const friendName = friend.textContent.toLowerCase();
+        if (friendName.includes(searchInput)) {
+            friend.style.display = '';
+        } else {
+            friend.style.display = 'none';
+        }
+    });
+}
+
 // Fonction pour charger le header et le footer
 function loadHTML() {
     fetch('../templates/header.html')

@@ -7,6 +7,16 @@
     box-shadow: 8px 8px 15px #b8b8b8, -8px -8px 15px #ffffff; /* Ombre pour le neumorphisme */
 }
 
+#search {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px; /* Coins arrondis pour le champ de recherche */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 16px; /* Taille de police pour le texte */
+}
+
 #friends-list {
     list-style-type: none; /* Supprimer les puces de la liste */
     padding: 0; /* Supprimer le padding par défaut */
