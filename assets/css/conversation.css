@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Couleur de fond générale */
+}
+
+#conversations {
+    border-bottom: 1px solid #e0e0e0; /* Ligne de séparation */
+    margin-bottom: 20px;
+}
+
+.conversation {
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background-color: #f0f0f0; /* Couleur de fond pour les conversations */
+    box-shadow: 8px 8px 15px #b8b8b8b8, -8px -8px 15px #ffffff; /* Ombre pour le neumorphisme */
+}
+
+.conversation:hover {
+    background-color: #e0e0e0; /* Changement de couleur au survol */
+}
+
+.conversation-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Espacement entre l'en-tête de la conversation et le message */
+}
+
+.conversation-header .profile-photo {
+    width: 40px; /* Largeur de l'image */
+    height: 40px; /* Hauteur de l'image */
+    border-radius: 50%; /* Arrondir l'image pour qu'elle soit circulaire */
+    margin-right: 10px; /* Espacement entre l'image et le nom */
+}
+
+.conversation-header h2 {
+    margin: 0; /* Supprimer la marge par défaut */
+}
+
+#conversation-detail {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff; /* Couleur de fond pour le conteneur principal */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+.message {
+    display: flex;
+    align-items: flex-start; /* Alignement en haut */
+    margin: 10px 0;
+}
+
+.profile-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.timestamp {
+    font-size: 0.8em;
+    color: #888;
+    margin-left: auto;
+    margin-top: 5px; /* Espacement au-dessus de l'horodatage */
+}
+
+#message-input {
+    display: flex;
+    margin-top: 20px;
+    border-top: 1px solid #e0e0e0; /* Ligne de séparation */
+    padding-top: 10px;
+}
+
+#new-message {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-right: 10px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#send-button {
+    padding: 10px 15px;
+    background-color: #ffcc00;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#send-button:hover {
+    background-color: #006eff; /* Couleur de survol pour le bouton */
+}
+
+.message-content {
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 75%; /* Limiter la largeur des messages */
+    position: relative;
+    margin: 5px 0; /* Espacement entre les messages */
+}
+
+.message-content.sent {
+    background-color: #ffcc00; /* Couleur de fond pour les messages envoyés */
+    margin-left: auto; /* Aligner à droite */
+}
+
+.message-content.received {
+    background-color: #f1f1f1; /* Couleur de fond pour les messages reçus */
+    margin-right: auto; /* Aligner à gauche */
+}
