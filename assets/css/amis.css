@@ -1,0 +1,62 @@
+#friends {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff; /* Couleur de fond pour le neumorphisme */
+    border-radius: 20px;
+    box-shadow: 8px 8px 15px #b8b8b8, -8px -8px 15px #ffffff; /* Ombre pour le neumorphisme */
+}
+
+#friends-list {
+    list-style-type: none; /* Supprimer les puces de la liste */
+    padding: 0; /* Supprimer le padding par défaut */
+}
+
+.friend {
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #f0f0f0; /* Couleur de fond pour les amis */
+    border-radius: 10px;
+    box-shadow: 8px 8px 15px #b8b8b8, -8px -8px 15px #ffffff; /* Ombre pour le neumorphisme */
+    transition: transform 0.3s;
+    display: flex; /* Utiliser flexbox pour aligner les éléments */
+    align-items: center; /* Centrer verticalement */
+}
+
+.friend:hover {
+    transform: scale(1.02); /* Effet de zoom au survol */
+}
+
+.friend img {
+    border-radius: 50%; /* Arrondir les images des amis */
+    width: 50px; /* Largeur fixe */
+    height: 50px; /* Hauteur fixe */
+    margin-right: 10px; /* Espacement à droite */
+}
+
+.friend-info {
+    flex-grow: 1; /* Permet à l'info de l'ami de prendre tout l'espace disponible */
+}
+
+.friend-info h4 {
+    margin: 0; /* Supprimer la marge par défaut */
+    font-size: 1.2em; /* Taille de police pour le nom de l'ami */
+    color: #333; /* Couleur du texte */
+}
+
+.friend-info p {
+    margin: 0; /* Supprimer la marge par défaut */
+    color: #777; /* Couleur pour les informations supplémentaires */
+}
+
+.contact-link {
+    color: #007bff; /* Couleur du lien */
+    text-decoration: none; /* Supprimer le soulignement */
+    padding: 5px 10px;
+    border-radius: 5px; /* Coins arrondis */
+    transition: background-color 0.3s;
+}
+
+.contact-link:hover {
+    background-color: #e0e0e0; /* Couleur de fond au survol */
+}
